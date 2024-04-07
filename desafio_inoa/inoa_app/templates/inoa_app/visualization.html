@@ -1,0 +1,57 @@
+{% load static %}
+{% include "inoa_app/base.html" %}
+<body>
+    {% include "inoa_app/navbar.html" %}
+    <div>
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10">
+          <div class="sm:flex sm:items-center">
+            <div class="sm:flex-auto">
+              <h1 class="text-base font-semibold leading-6 text-gray-900">Ativos</h1>
+              <p class="mt-2 text-sm text-gray-700">Lista de Ativos Monitorados com seus preços</p>
+            </div>
+            <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+                <a href="{% url 'registrar_ativo' user_id=user.id %}" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" style="text-decoration: none; display: inline-block;">Adicionar Ativo</a>
+            </div>
+          </div>
+        </div> 
+        <div class="mt-8 flow-root overflow-hidden shadow-md">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 shadow-lg">
+            <table class="w-full text-left">
+              <thead class="bg-white">
+                <tr>
+                  <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Ativo</th>
+                  <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 md:table-cell">Data</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Open</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">High</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Low</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Close</th>
+    
+    
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+               {% for stock in stocks%}
+                <tr>
+                  <td class="px-3 py-4 text-sm text-black-500">{{stock.name}}</td>
+                  <td class="hidden px-3 py-4 text-sm text-black-500 sm:table-cell">{{stock.date}}</td>
+                  <td class="px-3 py-4 text-sm text-black-500">R$ {{stock.open_price}}</td>
+                  <td class="px-3 py-4 text-sm text-black-500">R$ {{stock.high_price}}</td>
+                  <td class="px-3 py-4 text-sm text-black-500">R$ {{stock.low_price}}</td>
+                  <td class="px-3 py-4 text-sm text-black-500">R$ {{stock.close_price}}</td>
+                  
+                  
+                  
+                </tr>
+                {% endfor %}
+      
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+</body>
+
+
+  

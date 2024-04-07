@@ -1,0 +1,49 @@
+{% load static %}
+{% include "inoa_app/base.html" %}
+<body>
+    {% include "inoa_app/navbar.html" %}
+    <div>
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10 shadow-sm">
+          <div class="sm:flex sm:items-center">
+            <div class="sm:flex-auto">
+              <h1 class="text-base font-semibold leading-6 text-gray-900">Ativos</h1>
+              <p class="mt-2 text-sm text-gray-700">Lista de Alertas Enviados Para Seu Email </p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-8 flow-root overflow-hidden shadow-md">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 shadow-lg">
+            <table class="w-full text-left">
+              <thead class="bg-white">
+                <tr>
+                  <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-black-900 sm:table-cell">Ativo</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-black-900">Data</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-black-900">Preço</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-black-900">Limite Inferior</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-black-900">Limite Superior</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for alert in alerts  %}
+                     
+                <tr>
+            
+                  <td class="px-3 py-4 text-sm text-gray-500">{{alert.name}}</td>
+                  <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">{{alert.date}}</td>
+                  <td class="px-3 py-4 text-sm text-gray-500">R$ {{alert.close_price}}</td>
+                  <td class="px-3 py-4 text-sm text-gray-500">R$ {{alert.order.lower_limit}}</td>
+                  <td class="px-3 py-4 text-sm text-gray-500">R${{alert.order.upper_limit}}</td>
+                 
+                  
+               
+                </tr>
+                 
+              {% endfor %}
+      
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+</body>

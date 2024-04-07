@@ -1,0 +1,19 @@
+{% load static %}
+
+<nav>
+    <div class="flex flex-1 items-center justify-between sm:items-stretch sm:justify-start bg-gray-500 h-10">
+        <div class="flex flex-shrink-0 items-center">
+            <img class="h-8 w-auto" src="{% static "inoa_app/images/inoa_logo.png" %}" alt="Your Company">
+        </div>
+        <div class="hidden sm:ml-6 sm:block">
+            <div class="flex space-x-4">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <a href={% url "registrar_ativo" user_id=user.id %} class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Registrar Ativo</a>
+                <a href={% url "visualizar" user_id=user.id %} class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Visualizar Ativos</a>
+                <a href={% url "alertas" user_id=user.id %} class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Ver Alertas </a>
+                <a href={% url "logout" %} class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Logout</a>
+            </div>
+        </div>
+        
+    </div>
+</nav>
